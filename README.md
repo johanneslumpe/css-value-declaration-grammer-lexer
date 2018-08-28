@@ -10,7 +10,7 @@ As of now it supports:
 * data types
 * functions
 * groups
-* combinators (`|, `||`, ` `, `&&`)
+* combinators (`|`, `||`, ` `, `&&`)
 * mutlipliers (`+`, `*`, `?`, `!`, `#`, `{}`)
 * literal characters (`,`, `/`)
 
