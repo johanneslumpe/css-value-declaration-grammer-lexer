@@ -56,6 +56,20 @@ describe('valueDeclaration', () => {
         /bracket count mismatch/,
       );
     });
+
+    it('should be able to lex nested groups', () => {
+      const l = valueDeclaration(
+        new Lexer<ICssTokenType, IAdditionalTokenData>('[ [ [ ] ] ]'),
+      );
+      expect(l.emittedTokens).toMatchObject([
+        getGroupStartToken(0, 1),
+        getGroupStartToken(2, 3),
+        getGroupStartToken(4, 5),
+        getGroupEndToken(6, 7),
+        getGroupEndToken(8, 9),
+        getGroupEndToken(10, 11),
+      ]);
+    });
   });
 
   describe('keywords', () => {
