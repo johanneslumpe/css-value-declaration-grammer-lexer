@@ -1,6 +1,6 @@
 {
   "name": "@johanneslumpe/css-value-declaration-grammer-lexer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lexer for css value declaration grammar",
   "main": "lib/index.js",
   "module": "es/index.js",
