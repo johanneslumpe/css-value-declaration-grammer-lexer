@@ -219,12 +219,12 @@ const groupEnd = (lexer: CSSTokenLexer): stateFn => {
     ICssTokenType.FUNCTION,
     ICssTokenType.GROUP,
   );
-  const tokenSubType = getTokenSubType(token);
 
   if (
-    !tokenSubType ||
-    (tokenSubType !== ICssGroupTokenType.GROUP_START &&
-      tokenSubType !== ICssFunctionTokenType.FUNCTION_END)
+    token &&
+    ((token.type === ICssTokenType.FUNCTION &&
+      getTokenSubType(token) !== ICssFunctionTokenType.FUNCTION_END) ||
+      token.type !== ICssTokenType.GROUP)
   ) {
     return error('Invalid bracket closing position');
   }
