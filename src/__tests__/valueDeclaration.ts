@@ -33,9 +33,7 @@ describe('valueDeclaration', () => {
 
   describe('groups', () => {
     it('should be able to lex an empty group', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('[ ]'),
-      );
+      const l = valueDeclaration(new Lexer('[ ]'));
       expect(l.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getGroupEndToken(2, 3),
@@ -43,9 +41,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should emit a lexing error token if brackets are not properly closed', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('[ test'),
-      );
+      const l = valueDeclaration(new Lexer('[ test'));
       expect(l.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getKeywordToken(2, 6, 'test'),
@@ -58,9 +54,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should be able to lex nested groups', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('[ [ [ ] ] ]'),
-      );
+      const l = valueDeclaration(new Lexer('[ [ [ ] ] ]'));
       expect(l.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getGroupStartToken(2, 3),
@@ -70,29 +64,34 @@ describe('valueDeclaration', () => {
         getGroupEndToken(10, 11),
       ]);
     });
+
+    it('should be able to lex nested functions in groups', () => {
+      const l = valueDeclaration(new Lexer('[ func() ]'));
+
+      expect(l.emittedTokens).toMatchObject([
+        getGroupStartToken(0, 1),
+        getFunctionStartToken(2, 7, 'func('),
+        getFunctionEndToken(7, 8),
+        getGroupEndToken(9, 10),
+      ]);
+    });
   });
 
   describe('keywords', () => {
     it('should be able to lex a keyword', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('baseline'),
-      );
+      const l = valueDeclaration(new Lexer('baseline'));
       expect(l.emittedTokens).toMatchObject([
         getKeywordToken(0, 8, 'baseline'),
       ]);
     });
 
     it('should allow numbers in keywords', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('jis90'),
-      );
+      const l = valueDeclaration(new Lexer('jis90'));
       expect(l.emittedTokens).toMatchObject([getKeywordToken(0, 5, 'jis90')]);
     });
 
     it('should be able to lex keywords in a group', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('[ baseline keyword ]'),
-      );
+      const l = valueDeclaration(new Lexer('[ baseline keyword ]'));
       expect(l.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getKeywordToken(2, 10, 'baseline'),
@@ -105,18 +104,14 @@ describe('valueDeclaration', () => {
 
   describe('data types', () => {
     it('should be able to lex a basic data-type', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('<length>'),
-      );
+      const l = valueDeclaration(new Lexer('<length>'));
       expect(l.emittedTokens).toMatchObject([
         getDataTypeToken(0, 8, '<length>'),
       ]);
     });
 
     it('should be able to lex a property data-type', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>("<'some-property'>"),
-      );
+      const l = valueDeclaration(new Lexer("<'some-property'>"));
       expect(l.emittedTokens).toMatchObject([
         getDataTypeToken(
           0,
@@ -127,9 +122,7 @@ describe('valueDeclaration', () => {
       ]);
     });
     it('should emit a lexing error token if a data type is not closed', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('<length'),
-      );
+      const l = valueDeclaration(new Lexer('<length'));
       expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
 
       expect(l.emittedTokens[0].value.toLowerCase()).toMatch(
@@ -138,9 +131,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should emit a lexing error token if a property data type is not closed', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>("<'length"),
-      );
+      const l = valueDeclaration(new Lexer("<'length"));
       expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
 
       expect(l.emittedTokens[0].value.toLowerCase()).toMatch(
@@ -149,18 +140,14 @@ describe('valueDeclaration', () => {
     });
 
     it('should be able to lex function references in data types', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('<blur()>'),
-      );
+      const l = valueDeclaration(new Lexer('<blur()>'));
       expect(l.emittedTokens).toMatchObject([
         getDataTypeToken(0, 8, '<blur()>'),
       ]);
     });
 
     it('should emit a lexing token if a function references in a data type contains characters', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('<blur(a)>'),
-      );
+      const l = valueDeclaration(new Lexer('<blur(a)>'));
       expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
       expect(l.emittedTokens[0].value).toMatch(/expected closing "\)"/);
     });
@@ -169,9 +156,7 @@ describe('valueDeclaration', () => {
   describe('combinators', () => {
     describe('juxtaposition', () => {
       it('should not lex a juxtaposition after a function start or before a function end', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('fit-content( test )'),
-        );
+        const l = valueDeclaration(new Lexer('fit-content( test )'));
         expect(l.emittedTokens).toMatchObject([
           getFunctionStartToken(0, 12, 'fit-content('),
           getKeywordToken(13, 17, 'test'),
@@ -180,9 +165,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should lex a juxtaposition between two adjacant groups', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('[ ] [ ]'),
-        );
+        const l = valueDeclaration(new Lexer('[ ] [ ]'));
         expect(l.emittedTokens).toMatchObject([
           getGroupStartToken(0, 1),
           getGroupEndToken(2, 3),
@@ -193,9 +176,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should lex two a juxtaposition between two keywords', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('baseline keyword'),
-        );
+        const l = valueDeclaration(new Lexer('baseline keyword'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 8, 'baseline'),
           getJuxtapositionToken(8, 9),
@@ -204,9 +185,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should emit an error if a juxtaposition is the last token in a string', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('test '),
-        );
+        const l = valueDeclaration(new Lexer('test '));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 4, 'test'),
           BASE_LEXING_ERROR_TOKEN,
@@ -219,9 +198,7 @@ describe('valueDeclaration', () => {
       describe('literals', () => {
         LITERALS.forEach(literal => {
           it(`should lex a juxtaposition after a "${literal}"`, () => {
-            const l = valueDeclaration(
-              new Lexer<ICssTokenType, IAdditionalTokenData>(`${literal} test`),
-            );
+            const l = valueDeclaration(new Lexer(`${literal} test`));
             expect(l.emittedTokens).toMatchObject([
               getLiteralToken(0, literal.length, literal),
               getJuxtapositionToken(literal.length, literal.length + 1),
@@ -234,23 +211,17 @@ describe('valueDeclaration', () => {
 
     describe('single bar', () => {
       it('should be able to lex a single bar token', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('|'),
-        );
+        const l = valueDeclaration(new Lexer('|'));
         expect(l.emittedTokens).toMatchObject([getSingleBarToken(0, 1)]);
       });
 
       it('should be able to lex a double bar token', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('||'),
-        );
+        const l = valueDeclaration(new Lexer('||'));
         expect(l.emittedTokens).toMatchObject([getDoubleBarToken(0, 2)]);
       });
       it('should be able to lex a combination of groups, keywords data types and single bars', () => {
         const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>(
-            '[ left | bottom | <length-percentage> ]',
-          ),
+          new Lexer('[ left | bottom | <length-percentage> ]'),
         );
         expect(l.emittedTokens).toMatchObject([
           getGroupStartToken(0, 1),
@@ -266,25 +237,19 @@ describe('valueDeclaration', () => {
 
     describe('double ampersand', () => {
       it('should be able to lex a double ampersand token', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('&&'),
-        );
+        const l = valueDeclaration(new Lexer('&&'));
         expect(l.emittedTokens).toMatchObject([getDoubleAmpersandToken(0, 2)]);
       });
 
       it('should emit a lexing error if a single ampersand is located at the end of the string', () => {
         // EOS
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('&'),
-        );
+        const l = valueDeclaration(new Lexer('&'));
         expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
       });
 
       it('should emit a lexing error if a single ampersand is located within a string', () => {
         // invalid next character
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('& '),
-        );
+        const l = valueDeclaration(new Lexer('& '));
         expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
         expect(l.emittedTokens[0].value.toLowerCase()).toMatch(
           /unexpected character/,
@@ -331,9 +296,7 @@ describe('valueDeclaration', () => {
 
   describe('functions', () => {
     it('should be able to lex a function value', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('matrix3d()'),
-      );
+      const l = valueDeclaration(new Lexer('matrix3d()'));
       expect(l.emittedTokens).toMatchObject([
         getFunctionStartToken(0, 9, 'matrix3d('),
         getFunctionEndToken(9, 10),
@@ -341,9 +304,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should be able to lex a function value with a group inside', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('matrix3d( [ ] )'),
-      );
+      const l = valueDeclaration(new Lexer('matrix3d( [ ] )'));
       expect(l.emittedTokens).toMatchObject([
         getFunctionStartToken(0, 9, 'matrix3d('),
         getGroupStartToken(10, 11),
@@ -353,9 +314,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should emit a lexing error token if parentheses are not properly closed', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('calc( test'),
-      );
+      const l = valueDeclaration(new Lexer('calc( test'));
       expect(l.emittedTokens).toMatchObject([
         getFunctionStartToken(0, 5, 'calc('),
         getKeywordToken(6, 10, 'test'),
@@ -368,9 +327,7 @@ describe('valueDeclaration', () => {
     });
 
     it('should emit a lexing error token if parentheses and brackets are incorrectly nested', () => {
-      const l1 = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('[ calc( test ] )'),
-      );
+      const l1 = valueDeclaration(new Lexer('[ calc( test ] )'));
       expect(l1.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getFunctionStartToken(2, 7, 'calc('),
@@ -382,9 +339,7 @@ describe('valueDeclaration', () => {
         /invalid bracket closing/,
       );
 
-      const l2 = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('calc( [ test ) ]'),
-      );
+      const l2 = valueDeclaration(new Lexer('calc( [ test ) ]'));
 
       expect(l2.emittedTokens).toMatchObject([
         getFunctionStartToken(0, 5, 'calc('),
@@ -402,9 +357,7 @@ describe('valueDeclaration', () => {
   describe('multipliers', () => {
     describe('*', () => {
       it('should be able to lex `*`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller*'),
-        );
+        const l = valueDeclaration(new Lexer('smaller*'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(7, 8, ICssMultiplierTokenType.ASTERISK),
@@ -414,9 +367,7 @@ describe('valueDeclaration', () => {
 
     describe('+', () => {
       it('should be able to lex `+`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller+'),
-        );
+        const l = valueDeclaration(new Lexer('smaller+'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(7, 8, ICssMultiplierTokenType.PLUS),
@@ -425,9 +376,7 @@ describe('valueDeclaration', () => {
     });
     describe('?', () => {
       it('should be able to lex `?`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller?'),
-        );
+        const l = valueDeclaration(new Lexer('smaller?'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(7, 8, ICssMultiplierTokenType.QUESTION_MARK),
@@ -436,9 +385,7 @@ describe('valueDeclaration', () => {
     });
     describe('!', () => {
       it('should be able to lex `!`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('[]!'),
-        );
+        const l = valueDeclaration(new Lexer('[]!'));
         expect(l.emittedTokens).toMatchObject([
           getGroupStartToken(0, 1),
           getGroupEndToken(1, 2),
@@ -464,9 +411,7 @@ describe('valueDeclaration', () => {
         };
 
         Object.entries(testValues).forEach(([key, tokenArray]) => {
-          const l = valueDeclaration(
-            new Lexer<ICssTokenType, IAdditionalTokenData>(key),
-          );
+          const l = valueDeclaration(new Lexer(key));
           expect(l.emittedTokens).toMatchObject(tokenArray);
           expect(
             l.emittedTokens[l.emittedTokens.length - 1].value.toLowerCase(),
@@ -477,9 +422,7 @@ describe('valueDeclaration', () => {
 
     describe('#', () => {
       it('should be able to lex `#`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller#'),
-        );
+        const l = valueDeclaration(new Lexer('smaller#'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(7, 8, ICssMultiplierTokenType.HASH_MARK),
@@ -496,9 +439,7 @@ describe('valueDeclaration', () => {
       };
       Object.entries(multipliers).forEach(([multiplier, token]) => {
         const l1 = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>(
-            `smaller${multiplier}${multiplier}`,
-          ),
+          new Lexer(`smaller${multiplier}${multiplier}`),
         );
         expect(l1.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
@@ -508,9 +449,7 @@ describe('valueDeclaration', () => {
       });
 
       // `!` is only for groups
-      const l2 = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>(`[]!!`),
-      );
+      const l2 = valueDeclaration(new Lexer(`[]!!`));
       expect(l2.emittedTokens).toMatchObject([
         getGroupStartToken(0, 1),
         getGroupEndToken(1, 2),
@@ -545,9 +484,7 @@ describe('valueDeclaration', () => {
 
     describe('`{}`', () => {
       it('should be able to lex `{x,y}`', () => {
-        const l1 = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{1,2}'),
-        );
+        const l1 = valueDeclaration(new Lexer('smaller{1,2}'));
         expect(l1.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(
@@ -560,9 +497,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should be able to lex `{x,}`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{1,}'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{1,}'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(
@@ -575,9 +510,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should be able to lex `{x}`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{1}'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{1}'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           getMultiplierToken(
@@ -590,9 +523,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should emit a lexing error token if {} multiplier is not closed', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{1,2'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{1,2'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           BASE_LEXING_ERROR_TOKEN,
@@ -604,9 +535,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should emit a lexing error token if no number is present after `{`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{}'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{}'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           BASE_LEXING_ERROR_TOKEN,
@@ -618,9 +547,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should emit a lexing error token if `{` appers before the end of a string', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           BASE_LEXING_ERROR_TOKEN,
@@ -632,9 +559,7 @@ describe('valueDeclaration', () => {
       });
 
       it('should emit a lexing error token if `{x` is not followed by a `,`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('smaller{1'),
-        );
+        const l = valueDeclaration(new Lexer('smaller{1'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 7, 'smaller'),
           BASE_LEXING_ERROR_TOKEN,
@@ -648,18 +573,14 @@ describe('valueDeclaration', () => {
   describe('literal characters', () => {
     describe(',', () => {
       it('should be able to lex `,`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>(','),
-        );
+        const l = valueDeclaration(new Lexer(','));
         expect(l.emittedTokens).toMatchObject([getLiteralToken(0, 1, ',')]);
       });
     });
 
     describe('/', () => {
       it('should be able to lex `/`', () => {
-        const l = valueDeclaration(
-          new Lexer<ICssTokenType, IAdditionalTokenData>('/'),
-        );
+        const l = valueDeclaration(new Lexer('/'));
         expect(l.emittedTokens).toMatchObject([getLiteralToken(0, 1, '/')]);
       });
     });
@@ -667,9 +588,7 @@ describe('valueDeclaration', () => {
 
   describe('misc', () => {
     it('should return an error token for an invalid character', () => {
-      const l = valueDeclaration(
-        new Lexer<ICssTokenType, IAdditionalTokenData>('$'),
-      );
+      const l = valueDeclaration(new Lexer('$'));
       expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
 
       expect(l.emittedTokens[0].value.toLowerCase()).toMatch(
