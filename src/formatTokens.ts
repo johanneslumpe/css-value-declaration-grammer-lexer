@@ -33,9 +33,9 @@ export const formatTokens = (
     result += `${`${' '.repeat(currentIndent)}${token.value}`.padEnd(
       padding,
       paddingChar,
-    )}${token.type} ${
-      token.data && token.data.subType ? `(${token.data.subType})` : ''
-    }\n`;
+    )}${token.type}${
+      token.data && token.data.subType ? ` (${token.data.subType})` : ''
+    } (${token.startPos}, ${token.endPos})\n`;
     if (
       subType === ICssGroupTokenType.GROUP_START ||
       subType === ICssFunctionTokenType.FUNCTION_START
@@ -44,5 +44,5 @@ export const formatTokens = (
     }
   });
 
-  return result;
+  return result.trim();
 };

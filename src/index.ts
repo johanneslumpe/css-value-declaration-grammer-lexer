@@ -17,4 +17,4 @@ export {
 export { formatTokens } from './formatTokens';
 
 export const lexValueDeclarationGrammar = (declaration: string) =>
-  valueDeclaration(new Lexer<ICssTokenType, IAdditionalTokenData>(declaration));
+  valueDeclaration(new Lexer(declaration));
