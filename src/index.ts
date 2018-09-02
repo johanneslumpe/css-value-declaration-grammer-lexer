@@ -1,6 +1,6 @@
 import { Lexer } from '@johanneslumpe/basic-lexer';
 
-import { IAdditionalTokenData, ICssTokenType } from './types';
+import { IAdditionalTokenData, ICssTokenType, ILexingError } from './types';
 import { valueDeclaration } from './valueDeclaration';
 
 export {
@@ -17,4 +17,6 @@ export {
 export { formatTokens } from './formatTokens';
 
 export const lexValueDeclarationGrammar = (declaration: string) =>
-  valueDeclaration(new Lexer(declaration));
+  valueDeclaration(
+    new Lexer<ICssTokenType | ILexingError, IAdditionalTokenData>(declaration),
+  );

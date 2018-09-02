@@ -1,7 +1,7 @@
 /**
  * The possible token types we can lex
  */
-export const enum ICssTokenType {
+export enum ICssTokenType {
   COMBINATOR = 'COMBINATOR',
   KEYWORD = 'KEYWORD',
   DATA_TYPE = 'DATA_TYPE',
@@ -14,7 +14,7 @@ export const enum ICssTokenType {
 /**
  * Subtypes for the `FUNCTION` token type
  */
-export const enum ICssFunctionTokenType {
+export enum ICssFunctionTokenType {
   FUNCTION_START = 'FUNCTION_START',
   FUNCTION_END = 'FUNCTION_END',
 }
@@ -22,7 +22,7 @@ export const enum ICssFunctionTokenType {
 /**
  * Subtypes for the `GROUP` token type
  */
-export const enum ICssGroupTokenType {
+export enum ICssGroupTokenType {
   GROUP_START = 'GROUP_START',
   GROUP_END = 'GROUP_END',
 }
@@ -30,7 +30,7 @@ export const enum ICssGroupTokenType {
 /**
  * Subtypes for the `DATA_TYPE` token type
  */
-export const enum ICssDataTokenType {
+export enum ICssDataTokenType {
   BASIC = 'BASIC',
   PROPERTY = 'PROPERTY',
 }
@@ -38,7 +38,7 @@ export const enum ICssDataTokenType {
 /**
  * Subtypes for the `COMBINATOR` token type
  */
-export const enum ICssCombinatorTokenType {
+export enum ICssCombinatorTokenType {
   JUXTAPOSITION = 'JUXTAPOSITION',
   SINGLE_BAR = 'SINGLE_BAR',
   DOUBLE_BAR = 'DOUBLE_BAR',
@@ -48,7 +48,7 @@ export const enum ICssCombinatorTokenType {
 /**
  * Subtypes for the `MULTIPLIER` token type
  */
-export const enum ICssMultiplierTokenType {
+export enum ICssMultiplierTokenType {
   ASTERISK = 'ASTERISK',
   PLUS = 'PLUS',
   HASH_MARK = 'HASH_MARK',
@@ -61,7 +61,7 @@ export const enum ICssMultiplierTokenType {
  * Using an enum here so we can refer to an enum instead of the plain
  * string value
  */
-export const enum ILexingError {
+export enum ILexingError {
   LEXING_ERROR = 'LEXING_ERROR',
 }
 
