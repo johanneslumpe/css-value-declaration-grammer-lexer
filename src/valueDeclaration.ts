@@ -12,7 +12,7 @@ import {
   ILexingError,
 } from './types';
 
-type LexToken = IBaseLexToken<
+export type CssValueDeclarationToken = IBaseLexToken<
   ICssTokenType | ILexingError,
   IAdditionalTokenData
 >;
@@ -25,7 +25,7 @@ type CSSTokenLexer = Lexer<ICssTokenType | ILexingError, IAdditionalTokenData>;
 type stateFn = (lexer: CSSTokenLexer) => stateFn | undefined;
 
 export const getTokenSubType = (
-  token?: LexToken,
+  token?: CssValueDeclarationToken,
 ): CssTokenSubType | undefined => token && token.data && token.data.subType;
 
 const error = (errorMessage: string) => (lexer: CSSTokenLexer): undefined => {
@@ -246,7 +246,7 @@ const numberPredicate = (char: string) => {
 
 const multiplierPositionError = (
   multiplierValue: ICssMultiplierTokenType | undefined,
-  token?: LexToken,
+  token?: CssValueDeclarationToken,
 ): string =>
   `Invalid multiplier position. The \`${multiplierValue}\` multiplier was appended to: "${token &&
     token.value}`;
