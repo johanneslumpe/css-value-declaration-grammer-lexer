@@ -11,7 +11,7 @@ As of now it supports:
 * functions
 * groups
 * combinators (`|`, `||`, ` `, `&&`)
-* mutlipliers (`+`, `*`, `?`, `!`, `#`, `{}`)
+* multipliers (`+`, `*`, `?`, `!`, `#`, `{}`)
 * literal characters (`,`, `/`)
 
 ## Get it
