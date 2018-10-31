@@ -52,6 +52,7 @@ const juxtaposition = (lexer: CSSTokenLexer): stateFn => {
     prevTokenType === ICssTokenType.LITERAL ||
     prevTokenType === ICssTokenType.KEYWORD ||
     prevTokenType === ICssTokenType.DATA_TYPE ||
+    prevTokenType === ICssTokenType.MULTIPLIER ||
     (prevTokenType === ICssTokenType.GROUP &&
       prevTokenSubType === ICssGroupTokenType.GROUP_END);
 
@@ -221,11 +222,12 @@ const groupEnd = (lexer: CSSTokenLexer): stateFn => {
   );
 
   if (
-    token &&
-    ((token.type === ICssTokenType.FUNCTION &&
-      getTokenSubType(token) !== ICssFunctionTokenType.FUNCTION_END) ||
-      (token.type !== ICssTokenType.FUNCTION &&
-        token.type !== ICssTokenType.GROUP))
+    !token ||
+    (token &&
+      ((token.type === ICssTokenType.FUNCTION &&
+        getTokenSubType(token) !== ICssFunctionTokenType.FUNCTION_END) ||
+        (token.type !== ICssTokenType.FUNCTION &&
+          token.type !== ICssTokenType.GROUP)))
   ) {
     return error('Invalid bracket closing position');
   }

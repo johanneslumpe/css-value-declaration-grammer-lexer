@@ -53,6 +53,14 @@ describe('valueDeclaration', () => {
       );
     });
 
+    it('should emit a lexing error token if brackts are in the wrong order', () => {
+      const l = valueDeclaration(new Lexer('] ['));
+      expect(l.emittedTokens).toMatchObject([BASE_LEXING_ERROR_TOKEN]);
+      expect(l.emittedTokens[0].value.toLowerCase()).toMatch(
+        /invalid bracket closing position/,
+      );
+    });
+
     it('should be able to lex nested groups', () => {
       const l = valueDeclaration(new Lexer('[ [ [ ] ] ]'));
       expect(l.emittedTokens).toMatchObject([
@@ -175,7 +183,7 @@ describe('valueDeclaration', () => {
         ]);
       });
 
-      it('should lex two a juxtaposition between two keywords', () => {
+      it('should lex a juxtaposition between two keywords', () => {
         const l = valueDeclaration(new Lexer('baseline keyword'));
         expect(l.emittedTokens).toMatchObject([
           getKeywordToken(0, 8, 'baseline'),
@@ -193,6 +201,18 @@ describe('valueDeclaration', () => {
         expect(l.emittedTokens[1].value.toLowerCase()).toMatch(
           /juxtaposition.*?end.*?string/,
         );
+      });
+
+      it('should lex a juxtaposition in a group with an optional keyword', () => {
+        const l = valueDeclaration(new Lexer('[a? b]'));
+        expect(l.emittedTokens).toMatchObject([
+          getGroupStartToken(0, 1),
+          getKeywordToken(1, 2, 'a'),
+          getMultiplierToken(2, 3, ICssMultiplierTokenType.QUESTION_MARK, '?'),
+          getJuxtapositionToken(3, 4),
+          getKeywordToken(4, 5, 'b'),
+          getGroupEndToken(5, 6),
+        ]);
       });
 
       describe('literals', () => {
