@@ -21,7 +21,7 @@ Subtypes for the `GROUP` token type
 
 **GROUP_END**:  = "GROUP_END"
 
-*Defined in [types.ts:27](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L27)*
+*Defined in [types.ts:27](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L27)*
 
 ___
 <a id="group_start"></a>
@@ -30,7 +30,7 @@ ___
 
 **GROUP_START**:  = "GROUP_START"
 
-*Defined in [types.ts:26](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L26)*
+*Defined in [types.ts:26](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L26)*
 
 ___
 

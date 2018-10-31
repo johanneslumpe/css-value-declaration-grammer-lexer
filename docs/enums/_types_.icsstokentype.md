@@ -26,7 +26,7 @@ The possible token types we can lex
 
 **COMBINATOR**:  = "COMBINATOR"
 
-*Defined in [types.ts:5](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L5)*
+*Defined in [types.ts:5](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L5)*
 
 ___
 <a id="data_type"></a>
@@ -35,7 +35,7 @@ ___
 
 **DATA_TYPE**:  = "DATA_TYPE"
 
-*Defined in [types.ts:7](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L7)*
+*Defined in [types.ts:7](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L7)*
 
 ___
 <a id="function"></a>
@@ -44,7 +44,7 @@ ___
 
 **FUNCTION**:  = "FUNCTION"
 
-*Defined in [types.ts:9](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L9)*
+*Defined in [types.ts:9](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L9)*
 
 ___
 <a id="group"></a>
@@ -53,7 +53,7 @@ ___
 
 **GROUP**:  = "GROUP"
 
-*Defined in [types.ts:10](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L10)*
+*Defined in [types.ts:10](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L10)*
 
 ___
 <a id="keyword"></a>
@@ -62,7 +62,7 @@ ___
 
 **KEYWORD**:  = "KEYWORD"
 
-*Defined in [types.ts:6](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L6)*
+*Defined in [types.ts:6](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L6)*
 
 ___
 <a id="literal"></a>
@@ -71,7 +71,7 @@ ___
 
 **LITERAL**:  = "LITERAL"
 
-*Defined in [types.ts:11](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L11)*
+*Defined in [types.ts:11](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L11)*
 
 ___
 <a id="multiplier"></a>
@@ -80,7 +80,7 @@ ___
 
 **MULTIPLIER**:  = "MULTIPLIER"
 
-*Defined in [types.ts:8](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L8)*
+*Defined in [types.ts:8](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L8)*
 
 ___
 

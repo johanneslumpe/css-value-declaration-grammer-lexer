@@ -21,7 +21,7 @@ Subtypes for the `FUNCTION` token type
 
 **FUNCTION_END**:  = "FUNCTION_END"
 
-*Defined in [types.ts:19](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L19)*
+*Defined in [types.ts:19](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L19)*
 
 ___
 <a id="function_start"></a>
@@ -30,7 +30,7 @@ ___
 
 **FUNCTION_START**:  = "FUNCTION_START"
 
-*Defined in [types.ts:18](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L18)*
+*Defined in [types.ts:18](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L18)*
 
 ___
 

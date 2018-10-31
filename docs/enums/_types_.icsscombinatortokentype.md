@@ -23,7 +23,7 @@ Subtypes for the `COMBINATOR` token type
 
 **DOUBLE_AMPERSAND**:  = "DOUBLE_AMPERSAND"
 
-*Defined in [types.ts:45](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L45)*
+*Defined in [types.ts:45](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L45)*
 
 ___
 <a id="double_bar"></a>
@@ -32,7 +32,7 @@ ___
 
 **DOUBLE_BAR**:  = "DOUBLE_BAR"
 
-*Defined in [types.ts:44](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L44)*
+*Defined in [types.ts:44](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L44)*
 
 ___
 <a id="juxtaposition"></a>
@@ -41,7 +41,7 @@ ___
 
 **JUXTAPOSITION**:  = "JUXTAPOSITION"
 
-*Defined in [types.ts:42](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L42)*
+*Defined in [types.ts:42](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L42)*
 
 ___
 <a id="single_bar"></a>
@@ -50,7 +50,7 @@ ___
 
 **SINGLE_BAR**:  = "SINGLE_BAR"
 
-*Defined in [types.ts:43](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L43)*
+*Defined in [types.ts:43](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L43)*
 
 ___
 

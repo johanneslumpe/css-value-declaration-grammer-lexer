@@ -25,7 +25,7 @@ Subtypes for the `MULTIPLIER` token type
 
 **ASTERISK**:  = "ASTERISK"
 
-*Defined in [types.ts:52](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L52)*
+*Defined in [types.ts:52](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L52)*
 
 ___
 <a id="curly_braces"></a>
@@ -34,7 +34,7 @@ ___
 
 **CURLY_BRACES**:  = "CURLY_BRACES"
 
-*Defined in [types.ts:57](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L57)*
+*Defined in [types.ts:57](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L57)*
 
 ___
 <a id="exclamation_mark"></a>
@@ -43,7 +43,7 @@ ___
 
 **EXCLAMATION_MARK**:  = "EXCLAMATION_MARK"
 
-*Defined in [types.ts:56](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L56)*
+*Defined in [types.ts:56](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L56)*
 
 ___
 <a id="hash_mark"></a>
@@ -52,7 +52,7 @@ ___
 
 **HASH_MARK**:  = "HASH_MARK"
 
-*Defined in [types.ts:54](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L54)*
+*Defined in [types.ts:54](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L54)*
 
 ___
 <a id="plus"></a>
@@ -61,7 +61,7 @@ ___
 
 **PLUS**:  = "PLUS"
 
-*Defined in [types.ts:53](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L53)*
+*Defined in [types.ts:53](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L53)*
 
 ___
 <a id="question_mark"></a>
@@ -70,7 +70,7 @@ ___
 
 **QUESTION_MARK**:  = "QUESTION_MARK"
 
-*Defined in [types.ts:55](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L55)*
+*Defined in [types.ts:55](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L55)*
 
 ___
 

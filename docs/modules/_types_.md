@@ -33,7 +33,7 @@
 **Ƭ CssTokenSubType**: * [ICssCombinatorTokenType](../enums/_types_.icsscombinatortokentype.md) &#124; [ICssDataTokenType](../enums/_types_.icssdatatokentype.md) &#124; [ICssFunctionTokenType](../enums/_types_.icssfunctiontokentype.md) &#124; [ICssGroupTokenType](../enums/_types_.icssgrouptokentype.md) &#124; [ICssMultiplierTokenType](../enums/_types_.icssmultipliertokentype.md)
 *
 
-*Defined in [types.ts:68](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L68)*
+*Defined in [types.ts:68](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L68)*
 
 ___
 

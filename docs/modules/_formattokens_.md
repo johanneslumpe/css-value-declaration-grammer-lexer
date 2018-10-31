@@ -18,7 +18,7 @@
 
 ▸ **formatTokens**(tokens: *`Array`<`IBaseLexToken`< [ICssTokenType](../enums/_types_.icsstokentype.md) &#124; [ILexingError](../enums/_types_.ilexingerror.md), [IAdditionalTokenData](../interfaces/_types_.iadditionaltokendata.md)>>*, padding?: *`number`*, paddingChar?: *`string`*): `string`
 
-*Defined in [formatTokens.ts:16](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/formatTokens.ts#L16)*
+*Defined in [formatTokens.ts:16](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/formatTokens.ts#L16)*
 
 Formats the given tokens into a readable declaration output
 

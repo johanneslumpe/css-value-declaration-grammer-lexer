@@ -21,7 +21,7 @@ Subtypes for the `DATA_TYPE` token type
 
 **BASIC**:  = "BASIC"
 
-*Defined in [types.ts:34](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L34)*
+*Defined in [types.ts:34](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L34)*
 
 ___
 <a id="property"></a>
@@ -30,7 +30,7 @@ ___
 
 **PROPERTY**:  = "PROPERTY"
 
-*Defined in [types.ts:35](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L35)*
+*Defined in [types.ts:35](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L35)*
 
 ___
 

@@ -22,7 +22,7 @@
 
 **● subType**: *[CssTokenSubType](../modules/_types_.md#csstokensubtype)*
 
-*Defined in [types.ts:79](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L79)*
+*Defined in [types.ts:79](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L79)*
 
 The token sub type.
 

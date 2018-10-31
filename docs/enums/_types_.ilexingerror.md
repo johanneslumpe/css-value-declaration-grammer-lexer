@@ -20,7 +20,7 @@ Using an enum here so we can refer to an enum instead of the plain string value
 
 **LEXING_ERROR**:  = "LEXING_ERROR"
 
-*Defined in [types.ts:65](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/types.ts#L65)*
+*Defined in [types.ts:65](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/types.ts#L65)*
 
 ___
 

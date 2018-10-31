@@ -7,7 +7,7 @@
 ### Type aliases
 
 * [CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)
-* [LexToken](_valuedeclaration_.md#lextoken)
+* [CssValueDeclarationToken](_valuedeclaration_.md#cssvaluedeclarationtoken)
 * [stateFn](_valuedeclaration_.md#statefn)
 
 ### Functions
@@ -44,16 +44,16 @@
 
 **Ƭ CSSTokenLexer**: *`Lexer`< [ICssTokenType](../enums/_types_.icsstokentype.md) &#124; [ILexingError](../enums/_types_.ilexingerror.md), [IAdditionalTokenData](../interfaces/_types_.iadditionaltokendata.md)>*
 
-*Defined in [valueDeclaration.ts:20](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L20)*
+*Defined in [valueDeclaration.ts:20](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L20)*
 
 ___
-<a id="lextoken"></a>
+<a id="cssvaluedeclarationtoken"></a>
 
-###  LexToken
+###  CssValueDeclarationToken
 
-**Ƭ LexToken**: *`IBaseLexToken`< [ICssTokenType](../enums/_types_.icsstokentype.md) &#124; [ILexingError](../enums/_types_.ilexingerror.md), [IAdditionalTokenData](../interfaces/_types_.iadditionaltokendata.md)>*
+**Ƭ CssValueDeclarationToken**: *`IBaseLexToken`< [ICssTokenType](../enums/_types_.icsstokentype.md) &#124; [ILexingError](../enums/_types_.ilexingerror.md), [IAdditionalTokenData](../interfaces/_types_.iadditionaltokendata.md)>*
 
-*Defined in [valueDeclaration.ts:15](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L15)*
+*Defined in [valueDeclaration.ts:15](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L15)*
 
 ___
 <a id="statefn"></a>
@@ -62,7 +62,7 @@ ___
 
 **Ƭ stateFn**: *`function`*
 
-*Defined in [valueDeclaration.ts:25](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L25)*
+*Defined in [valueDeclaration.ts:25](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L25)*
 
 The state function pattern is inspired by a talk on lexing in Go by Rob Pike
 
@@ -87,7 +87,7 @@ ___
 
 ▸ **bar**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:178](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L178)*
+*Defined in [valueDeclaration.ts:179](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L179)*
 
 **Parameters:**
 
@@ -104,7 +104,7 @@ ___
 
 ▸ **combinator**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:368](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L368)*
+*Defined in [valueDeclaration.ts:371](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L371)*
 
 **Parameters:**
 
@@ -121,7 +121,7 @@ ___
 
 ▸ **curlyBracesMultiplier**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:272](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L272)*
+*Defined in [valueDeclaration.ts:275](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L275)*
 
 **Parameters:**
 
@@ -138,7 +138,7 @@ ___
 
 ▸ **dataType**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:125](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L125)*
+*Defined in [valueDeclaration.ts:126](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L126)*
 
 **Parameters:**
 
@@ -155,7 +155,7 @@ ___
 
 ▸ **declaration**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*):  [stateFn](_valuedeclaration_.md#statefn) &#124; `undefined`
 
-*Defined in [valueDeclaration.ts:401](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L401)*
+*Defined in [valueDeclaration.ts:404](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L404)*
 
 **Parameters:**
 
@@ -172,7 +172,7 @@ ___
 
 ▸ **doubleAmpersand**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:193](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L193)*
+*Defined in [valueDeclaration.ts:194](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L194)*
 
 **Parameters:**
 
@@ -189,7 +189,7 @@ ___
 
 ▸ **error**(errorMessage: *`string`*): `(Anonymous function)`
 
-*Defined in [valueDeclaration.ts:31](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L31)*
+*Defined in [valueDeclaration.ts:31](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L31)*
 
 **Parameters:**
 
@@ -206,7 +206,7 @@ ___
 
 ▸ **exclamationMarkMultiplier**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:253](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L253)*
+*Defined in [valueDeclaration.ts:256](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L256)*
 
 **Parameters:**
 
@@ -223,7 +223,7 @@ ___
 
 ▸ **functionEnd**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:104](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L104)*
+*Defined in [valueDeclaration.ts:105](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L105)*
 
 **Parameters:**
 
@@ -238,15 +238,15 @@ ___
 
 ### `<Const>` getTokenSubType
 
-▸ **getTokenSubType**(token?: *[LexToken](_valuedeclaration_.md#lextoken)*):  [CssTokenSubType](_types_.md#csstokensubtype) &#124; `undefined`
+▸ **getTokenSubType**(token?: *[CssValueDeclarationToken](_valuedeclaration_.md#cssvaluedeclarationtoken)*):  [CssTokenSubType](_types_.md#csstokensubtype) &#124; `undefined`
 
-*Defined in [valueDeclaration.ts:27](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L27)*
+*Defined in [valueDeclaration.ts:27](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L27)*
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
-| `Optional` token | [LexToken](_valuedeclaration_.md#lextoken) |
+| `Optional` token | [CssValueDeclarationToken](_valuedeclaration_.md#cssvaluedeclarationtoken) |
 
 **Returns:**  [CssTokenSubType](_types_.md#csstokensubtype) &#124; `undefined`
 
@@ -257,7 +257,7 @@ ___
 
 ▸ **groupEnd**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:216](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L216)*
+*Defined in [valueDeclaration.ts:217](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L217)*
 
 **Parameters:**
 
@@ -274,7 +274,7 @@ ___
 
 ▸ **groupStart**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:207](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L207)*
+*Defined in [valueDeclaration.ts:208](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L208)*
 
 **Parameters:**
 
@@ -291,7 +291,7 @@ ___
 
 ▸ **handleEOS**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*):  [stateFn](_valuedeclaration_.md#statefn) &#124; `undefined`
 
-*Defined in [valueDeclaration.ts:358](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L358)*
+*Defined in [valueDeclaration.ts:361](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L361)*
 
 **Parameters:**
 
@@ -308,7 +308,7 @@ ___
 
 ▸ **juxtaposition**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:36](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L36)*
+*Defined in [valueDeclaration.ts:36](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L36)*
 
 **Parameters:**
 
@@ -325,7 +325,7 @@ ___
 
 ▸ **keywordOrFunctionStart**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:89](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L89)*
+*Defined in [valueDeclaration.ts:90](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L90)*
 
 **Parameters:**
 
@@ -342,7 +342,7 @@ ___
 
 ▸ **literal**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:395](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L395)*
+*Defined in [valueDeclaration.ts:398](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L398)*
 
 **Parameters:**
 
@@ -359,7 +359,7 @@ ___
 
 ▸ **multiplier**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): [stateFn](_valuedeclaration_.md#statefn)
 
-*Defined in [valueDeclaration.ts:308](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L308)*
+*Defined in [valueDeclaration.ts:311](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L311)*
 
 **Parameters:**
 
@@ -374,16 +374,16 @@ ___
 
 ### `<Const>` multiplierPositionError
 
-▸ **multiplierPositionError**(multiplierValue: * [ICssMultiplierTokenType](../enums/_types_.icssmultipliertokentype.md) &#124; `undefined`*, token?: *[LexToken](_valuedeclaration_.md#lextoken)*): `string`
+▸ **multiplierPositionError**(multiplierValue: * [ICssMultiplierTokenType](../enums/_types_.icssmultipliertokentype.md) &#124; `undefined`*, token?: *[CssValueDeclarationToken](_valuedeclaration_.md#cssvaluedeclarationtoken)*): `string`
 
-*Defined in [valueDeclaration.ts:246](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L246)*
+*Defined in [valueDeclaration.ts:249](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L249)*
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
 | multiplierValue |  [ICssMultiplierTokenType](../enums/_types_.icssmultipliertokentype.md) &#124; `undefined`|
-| `Optional` token | [LexToken](_valuedeclaration_.md#lextoken) |
+| `Optional` token | [CssValueDeclarationToken](_valuedeclaration_.md#cssvaluedeclarationtoken) |
 
 **Returns:** `string`
 
@@ -394,7 +394,7 @@ ___
 
 ▸ **numberPredicate**(char: *`string`*): `boolean`
 
-*Defined in [valueDeclaration.ts:240](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L240)*
+*Defined in [valueDeclaration.ts:243](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L243)*
 
 **Parameters:**
 
@@ -411,7 +411,7 @@ ___
 
 ▸ **validCharForKeyword**(char: *`string`*): `boolean`
 
-*Defined in [valueDeclaration.ts:75](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L75)*
+*Defined in [valueDeclaration.ts:76](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L76)*
 
 **Parameters:**
 
@@ -428,7 +428,7 @@ ___
 
 ▸ **valueDeclaration**(lexer: *[CSSTokenLexer](_valuedeclaration_.md#csstokenlexer)*): `Lexer`< [COMBINATOR](../enums/_types_.icsstokentype.md#combinator) &#124; [KEYWORD](../enums/_types_.icsstokentype.md#keyword) &#124; [DATA_TYPE](../enums/_types_.icsstokentype.md#data_type) &#124; [MULTIPLIER](../enums/_types_.icsstokentype.md#multiplier) &#124; [FUNCTION](../enums/_types_.icsstokentype.md#function) &#124; [GROUP](../enums/_types_.icsstokentype.md#group) &#124; [LITERAL](../enums/_types_.icsstokentype.md#literal) &#124; [LEXING_ERROR](../enums/_types_.ilexingerror.md#lexing_error), [IAdditionalTokenData](../interfaces/_types_.iadditionaltokendata.md)>
 
-*Defined in [valueDeclaration.ts:442](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/c9b8a67/src/valueDeclaration.ts#L442)*
+*Defined in [valueDeclaration.ts:445](https://github.com/johanneslumpe/css-value-declaration-grammer-lexer/blob/2d14583/src/valueDeclaration.ts#L445)*
 
 Lexing entry function
 
